@@ -1,0 +1,4 @@
+{
+    "prettier.singleAttributePerLine": true,
+    "workbench.editor.limit.perEditorGroup": true
+}
