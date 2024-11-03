@@ -15,7 +15,7 @@ user.phone = 7602604332 // setting a key value pair key/property is phone and va
 
 //how to delete a key/value pair
 delete user.id
-console.log(user);
+//console.log(user);
 
 //makeUser function which returns an object
 function makeUser(name, age) {
@@ -49,7 +49,7 @@ employee.department = "cs"
 for (const key in employee) {
 // console.log(key, employee[key]);
 }
-console.log(Object.keys(employee));  // ['department' ] only why becoz for in loop only returns enumareble props not the inherited ones which can be accessed through objects prototype chain
+//console.log(Object.keys(employee));  // ['department' ] only why becoz for in loop only returns enumareble props not the inherited ones which can be accessed through objects prototype chain
 //how to check the prop is inherited or not --> hasOwnProperty method 
 // console.log(employee.hasOwnProperty('name')); // false
 // console.log(employee.hasOwnProperty('department')); // true
@@ -59,10 +59,10 @@ console.log(Object.keys(employee));  // ['department' ] only why becoz for in lo
 const animal = { sound: ' generic sound' };
 const dog = Object.create(animal);
 dog.bark = 'Woof!';
-console.log(Object.keys(dog)); // ['bark'] (only enumerable property)
-console.log(dog.sound); // ' generic sound' (inherited property)
+// console.log(Object.keys(dog)); // ['bark'] (only enumerable property)
+// console.log(dog.sound)// ' generic sound' (inherited property)
  
-
+; 
 // how to copy an object and rference it
 const car = {
     make: 'Toyota',
@@ -71,7 +71,7 @@ const car = {
     color: 'blue'
 };
 const vehicle = Object.assign({}, car); // basically copy/clone car object to an empty object {}
-console.log(vehicle);
+// console.log(vehicle);
 
 //nested cloning
 
@@ -86,4 +86,27 @@ const person = {
     }
   };
   
-  const person2 = Object.assign({}, person);
+  const clone = person
+  //console.log(clone);
+  clone.address.street="456 Main St"
+  console.log(clone.address==person.address); //returns true bcoz both are pointing to same object
+  
+  console.log(person); // changes reflected in both person and clone which is not good practice
+
+//lets try deep cloning correctly
+
+const person2 = {
+    name: 'John',
+    age: 30,
+    address: {
+      street: '123 Main St',
+      city: 'New York',
+      state: 'NY',
+      zip: 10001
+    }
+  };
+  
+  const clone2 = JSON.parse(JSON.stringify(person2))
+  clone2.address.street="456 Main St"
+  console.log(clone2.address==person2.address); //returns false bcoz both are not pointing to same object
+  console.log(person2);
