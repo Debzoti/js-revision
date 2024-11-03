@@ -39,12 +39,22 @@ console.log( "color" in apple); // true if color exists in apple object make sur
 
 // how to navigate to all the prop and values of an object --> for in loop
 
-const employee = Object.create({name : "debzoti"}) //creates an empty object in constructor mode
+const employee = Object.create({name : "debzoti"}) //creates an empty object in constructor mode here name is an inherited property
 employee.department = "cs"
 
 for (const key in employee) {
 console.log(key, employee[key]);
 }
-console.log(Object.keys(employee));  // ['department' ]
+console.log(Object.keys(employee));  // ['department' ] only why becoz for in loop only returns enumareble props not the inherited ones which can be accessed through objects prototype chain
+//how to check the prop is inherited or not --> hasOwnProperty method 
 console.log(employee.hasOwnProperty('name')); // false
 console.log(employee.hasOwnProperty('department')); // true
+
+/*
+an example of above concept-->
+const animal = { sound: ' generic sound' };
+const dog = Object.create(animal);
+dog.bark = 'Woof!';
+console.log(Object.keys(dog)); // ['bark'] (only enumerable property)
+console.log(dog.sound); // ' generic sound' (inherited property)
+ */
