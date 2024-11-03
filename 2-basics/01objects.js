@@ -1,5 +1,5 @@
 // two ways to declare objects --> constructor and literal
-const obj = {} //literal type declaration
+const obj = {} //literal object type declaration
 
 const user = { 
     name : "debzoti",
@@ -37,3 +37,14 @@ const apple = {
 
 console.log( "color" in apple); // true if color exists in apple object make sure key must be in double quotes
 
+// how to navigate to all the prop and values of an object --> for in loop
+
+const employee = Object.create({name : "debzoti"}) //creates an empty object in constructor mode
+employee.department = "cs"
+
+for (const key in employee) {
+console.log(key, employee[key]);
+}
+console.log(Object.keys(employee));  // ['department' ]
+console.log(employee.hasOwnProperty('name')); // false
+console.log(employee.hasOwnProperty('department')); // true
