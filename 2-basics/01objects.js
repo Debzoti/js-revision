@@ -1,6 +1,7 @@
 // two ways to declare objects --> constructor and literal
-// 
-const user = { //literal type
+const obj = {} //literal type declaration
+
+const user = { 
     name : "debzoti",
     email : "debzoti123@gmail.com",
     "pet name" : "vicky",
@@ -9,6 +10,30 @@ const user = { //literal type
 user.phone = 7602604332 // setting a key value pair key/property is phone and value is the number
 // console.log(user);  
 
-console.log(user.name); // op: debzoti
-console.log(user["pet name"]); // op:  its a dufferent way to access specially for keys whgich have whitespaces you cant acces them with just a . method above
+// console.log(user.name); // op: debzoti
+// console.log(user["pet name"]); // op:  its a dufferent way to access specially for keys whgich have whitespaces you cant acces them with just a . method above
+
+//makeUser function which returns an object
+function makeUser(name, age) {
+    return {
+      name,
+       age, // notice you dont need to specify key and value here seperately like (age : age) since both are same
+    };
+  }
+  
+  let user2 = makeUser("debzoti", 30);
+  let user3 = makeUser("vicky",30)
+//   console.log(user2.name);
+//   console.log(user3.age);
+
+
+//how to check a key/propeety exists in an object --> "in" operator
+
+const apple = {
+    color : "red",
+    type : "fruit",
+    quantity : 25,
+}
+
+console.log( "color" in apple); // true if color exists in apple object make sure key must be in double quotes
 
