@@ -75,7 +75,7 @@ const vehicle = Object.assign({}, car); // basically copy/clone car object to an
 
 //nested cloning
 
-const person = {
+const person1 = {
     name: 'John',
     age: 30,
     address: {
@@ -86,10 +86,10 @@ const person = {
     }
   };
   
-  const clone = person // it not an inpendent copy its a reference copy
-  console.log(clone.address==person.address); //returns true bcoz both are pointing to same object
+  const clone = person1 // it not an inpendent copy its a reference copy
+  // console.log(clone.address==person1.address); //returns true bcoz both are pointing to same object
   
-  console.log(person); // changes reflected in both person and clone which is not good practice
+  // console.log(person1); // changes reflected in both person and clone which is not good practice
 
 //lets try deep cloning correctly
 
@@ -106,13 +106,30 @@ const person2 = {
   
   const clone2 = JSON.parse(JSON.stringify(person2)) //to handle nested objects we use JSON.stringify which returns a string and parsing it to a js object usinng JSON.parse it makes an independent copy
   clone2.address.street="456 Main St" 
-  console.log(clone2.address==person2.address); //returns false bcoz both are not pointing to same object
-  console.log(person2); // changes doesnt reflected on both person2 and clone2 becoz they refernce to different objects
+  // console.log(clone2.address==person2.address); //returns false bcoz both are not pointing to same object
+  // console.log(person2); // changes doesnt reflected on both person2 and clone2 becoz they refernce to different objects
 
   //same thing can be acheived using structuredClone() method
   const clone3 = structuredClone(person2)
   clone3.address.street="789 Main St"
-  console.log(clone3.address==person2.address); //returns false bcoz both are not pointing to same object
-  console.log(person2); // changes doesnt reflected on both person2 and clone3 becoz they refernce to different objects
+  // console.log(clone3.address==person2.address); //returns false bcoz both are not pointing to same object
+  // console.log(person2); // changes doesnt reflected on both person2 and clone3 becoz they refernce to different objects
 
 // --> both json.parse and structuredClone return an independent copy but can be inefficient in case of having nested functions
+
+//spread operator for joining objects like assign(dest,...,sources) method
+const person3 = {
+    name: 'John',
+    age: 30,
+    address: {
+      street: '123 Main St',
+      city: 'New York',
+      state: 'NY',
+      zip: 10001
+    }
+  };
+  
+  const clone4 = {...person1,...car,...animal} //effective way to join key value pairs or more objects
+ // console.log(clone4);
+
+ 
