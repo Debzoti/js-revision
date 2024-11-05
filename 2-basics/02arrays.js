@@ -118,4 +118,4 @@ const arr11 = arr.reduce((acc,element) => {
 })
 console.log(arr11);
 
-//explore more above on arricles then go further
+//explore more above on arricles then go further to arrays in js
