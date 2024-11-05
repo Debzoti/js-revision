@@ -117,3 +117,5 @@ const arr11 = arr.reduce((acc,element) => {
     return acc+element
 })
 console.log(arr11);
+
+//explore more above on arricles then go further
