@@ -1,4 +1,5 @@
 {
     "prettier.singleAttributePerLine": true,
-    "workbench.editor.limit.perEditorGroup": true
+    "workbench.editor.limit.perEditorGroup": true,
+    "remote.autoForwardPortsFallback": 0
 }
