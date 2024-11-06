@@ -42,4 +42,4 @@ console.log(userData(user));
 console.log(userData({name : "vicky", age : 32, company : "infosys"}));
 
 
-//scoping
+
