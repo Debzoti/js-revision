@@ -132,4 +132,55 @@ const person3 = {
   const clone4 = {...person1,...car,...animal} //effective way to join key value pairs or more objects
  // console.log(clone4);
 
- 
+ // --> constructor functions (any function can be used as a construtor func except arrow functions coz this does not exist in them)
+ // why need ? --> to create objects with predefined properties and methods 
+ function User(name, age) { // -->must use capital letter first for constructor function
+    this.name = name;
+    this.age = age;
+    this.getDetails = function() {
+      console.log(`his name is ${this.name} age is ${this.age}`);
+    };  
+ }
+ const user1 = new User("debzoti", 30); //--> must execute with new
+ console.log(user1.name);
+
+ // -->normally constructor functions doesnot return anything but we can use it to return an object
+ function BigUser() {
+
+  this.name = "John";
+
+  return { name: "Godzilla" };  // <-- returns this object
+}
+
+console.log( new BigUser().name ); // Godzilla, got that object
+
+
+
+// --> optional chaining
+/*  the optional chaining ?. syntax has three forms:
+
+obj?.prop – returns obj.prop if obj exists, otherwise undefined.
+obj?.[prop] – returns obj[prop] if obj exists, otherwise undefined.
+obj.method?.() – calls obj.method() if obj.method exists, otherwise returns undefined.
+As we can see, all of them are straightforward and simple to use. The ?. checks the left part for null/undefined and allows the evaluation to proceed if it’s not so.
+
+A chain of ?. allows to safely access nested properties.
+
+Still, we should apply ?. carefully, only where it’s acceptable, according to our code logic, that the left part doesn’t exist. So that it won’t hide programming errors from us, if they occur. */
+
+const dbData = {
+  name: "John",
+  age: 30,
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    state: "NY",
+    zip: 10001
+  }
+};
+
+const name = dbData?.name; // john
+const address = dbData?.address?.city; // "New York"
+const zip = dbData?.address?.zip; // 10001
+const phoneNo = dbData?.phoneNo; // undefined
+console.log(name, address, zip, phoneNo);
