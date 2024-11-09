@@ -14,7 +14,7 @@ user.phone = 7602604332 // setting a key value pair key/property is phone and va
 // console.log(user["pet name"]); // op:  its a dufferent way to access specially for keys whgich have whitespaces you cant acces them with just a . method above
 
 //how to delete a key/value pair
-delete user.id
+//delete user.id
 //console.log(user);
 
 //makeUser function which returns an object
@@ -185,7 +185,11 @@ const zip = dbData?.address?.zip; // 10001
 const phoneNo = dbData?.phoneNo; // undefined
 console.log(name, address, zip, phoneNo);
 
-for (const [key, value] in user) {
-  console.log(key,value);
+// for (const [key, value] in user) {
+//   console.log(key,value);
   
-}//gives err --> TypeError: user is not iterable
+// }//gives err --> TypeError: user is not iterable
+// --> we can use Object.entries() method to fix this
+for (const [key, value] of Object.entries(user)) {
+      console.log(key, value) //works fine
+}
