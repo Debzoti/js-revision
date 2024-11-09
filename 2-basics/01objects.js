@@ -184,3 +184,8 @@ const address = dbData?.address?.city; // "New York"
 const zip = dbData?.address?.zip; // 10001
 const phoneNo = dbData?.phoneNo; // undefined
 console.log(name, address, zip, phoneNo);
+
+for (const [key, value] in user) {
+  console.log(key,value);
+  
+}//gives err --> TypeError: user is not iterable
