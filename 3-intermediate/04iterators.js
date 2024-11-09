@@ -23,4 +23,33 @@
 //     console.log(num);
 // }
 
-//
+// // iterate through nodes
+// const ul = document.querySelector("ul")
+// for (const li of ul.children) {
+//     console.log(li);
+// }
+
+//Array.from() --> converts array like object to array (array like object is an object that has length and indexes properties, but they may also have other non-numeric properties and methods, which we usually don’t need)
+// const arrLikeObj = {
+//     0 : "debzoti",
+//     1 : "debzoti",
+//     2 : "debzoti",
+//     3 : "debzoti",
+//     4 : "debzoti",
+//     5 : "debzoti",
+//     6 : "debzoti",
+//     7 : "debzoti",
+//     8 : "debzoti",
+//     9 : "debzoti",
+//     10 : "debzoti",
+//     length : 11
+// }
+// const arr = Array.from(arrLikeObj)
+// console.log(arr);
+
+//converting string to array using array.from()
+// const str = "debzoti"
+// const arr = Array.from(str)
+// console.log(arr);
+
+
