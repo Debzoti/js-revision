@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD for DOM learning</title>
+</head>
+<body style="background-color: rgb(0, 0, 0); color: whitesmoke;">
+    <div class="container">
+        <h2 id="title">list your coding languages</h2>
+        <ul id="list">  
+            <li>javascript</li>  
+        </ul>
+        <button class="addBtn" onclick="addUser()"> Add </button>
+        <button class="deleteBtn" onclick="deleteUser()">Delete</button>
+        <button class="updateBtn" onclick="updateUser()">Update</button>
+    </div>
+</body>
+<script>    
+
+
+//take prompt from user and take actions
+
+function addUser() {
+    const lang = prompt("enter your language");
+    addLang(lang);
+}
+
+function deleteUser() {
+    const lang = prompt("enter your language");
+    deleteLang(lang);
+}
+
+function updateUser() {
+    const oldLang = prompt("enter your old language");
+    const newLang = prompt("enter your new language");
+    updateLang(oldLang, newLang);
+}
+
+
+//create
+function addLang(lang) {
+    const list = document.getElementById("list");
+    const li = document.createElement("li");
+    li.setAttribute("id", Math.floor(Math.random()*10 +1));
+    li.appendChild(document.createTextNode(lang));  
+    list.appendChild(li);
+}
+
+//delete
+function deleteLang(lang) {
+    const list = document.getElementById("list");
+    const items = list.querySelectorAll("li"); //you can also use document.getElementsByTagName("li")
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].textContent === lang) {
+            list.removeChild(items[i]);
+        }
+    }
+}
+
+//update
+    function updateLang(oldLang, newLang) {
+        const list = document.getElementById("list");
+        const items = list.querySelectorAll("li");
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].textContent === oldLang) {
+                items[i].textContent = newLang;
+            }
+        }
+    }
+
+    //read
+    const list = document.getElementById("list");
+    const items = list.querySelectorAll("li");
+    for (let i = 0; i < items.length; i++) {
+        console.log(items[i].textContent);
+    }
+
+</script>
+</html>

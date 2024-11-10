@@ -1,1 +1,2 @@
 // DOM basics
+//create elements
