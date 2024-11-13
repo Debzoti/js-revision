@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: rgb(0, 0, 0); color: whitesmoke;">
     <header>
-        <h1>DOM Experiments</h1>
+        <h1 class="main-header">DOM Experiments</h1>
     </header>
 <main>
     <div class="title-header">
-        <h2>Title Header</h2>
+        <h2 id="title">Title Header</h2>
     </div>
     <ul class="list">
         <li>List Item 1</li>
@@ -20,7 +20,42 @@
     </ul>
 </main>
 <footer>
-    <p>Footer for DOM Experiments</p>
+    <p class="footer">Footer for DOM Experiments</p>
 </footer>
 </body>
+<script>
+    //event listeners
+    const list = document.querySelector(".list");
+    list.addEventListener("mouseover", function() {
+        list.style.color = "red";
+    });
+    list.addEventListener("mouseout", function() {
+        list.style.color = "whitesmoke";
+    });
+
+    const title = document.querySelector(".title-header");
+    title.addEventListener("click", function() {
+        title.style.color = "yellow";
+    });
+
+    //event handlers
+    const footer = document.querySelector(".footer");
+    footer.onclick = function() {
+        footer.style.color = "green";
+    }
+
+    //functions
+    const mainHeader = document.querySelector(".main-header");
+    mainHeader.addEventListener("click", function() {
+        mainHeader.style.color = "blue";
+    });
+
+    //event bubbling
+    const footer = document.querySelector(".footer");
+    footer.addEventListener("click", function() {
+        footer.style.color = "orange";
+    });
+    
+    
+</script>
 </html>
